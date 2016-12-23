@@ -1,11 +1,32 @@
 ﻿<h1>Hi {{vm.user.firstName}}!</h1>
 <p>You're logged in!!</p>
 <h3>All registered users:</h3>
-<ul>
+<table>
+    <thead>
+    <tr>
+        <th>Username</th>
+        <th>first name</th>
+        <th>last name</th>
+        <th>password </th>
+        <th>Delete</th>>
+    </tr>
+    </thead>
+    <tbody>
+    <tr ng-repeat="user in vm.allUsers">
+        <td>{{ user.username }}</td>
+        <td>{{ user.firstName  }}</td>
+        <td>{{ user.lastName }}</td>
+        <td>{{ user.password }}</td>
+        <td> <a ng-click="vm.deleteUser(user.id)">Delete</a></td>
+
+    </tr>
+    </tbody>>
+</table>
+<!--<ul>
     <li ng-repeat="user in vm.allUsers">
         {{user.username}} ({{user.firstName}} {{user.lastName}})
         - <a ng-click="vm.deleteUser(user.id)">Delete</a>
     </li>
-</ul>
+</ul>-->
 <p>&nbsp;</p>
 <p><a href="#!/login" class="btn btn-primary">Logout</a></p>
